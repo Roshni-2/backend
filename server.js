@@ -14,7 +14,7 @@ const app = express();
 app.use(express.json());
 
 app.use(cors({
-  origin: ["https://webpage-dusky-delta.vercel.app/"],
+  origin: ["https://webpage-dusky-delta.vercel.app"],
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true,
 }));
