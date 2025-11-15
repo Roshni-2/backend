@@ -6,7 +6,7 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-mongoose.connect("mongodb+srv://roshni_db_user:Roshni%402025@mern.4xfitnp.mongodb.net/Mernapp")
+mongoose.connect("mongodb+srv://roshni_db_user:Roshan2@Mern.4xfitnp.mongodb.net/MernDB")
 .then(console.log("MongoDB Connected"))
 .catch((error) => console.log(error))
 
