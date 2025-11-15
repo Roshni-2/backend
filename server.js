@@ -12,8 +12,11 @@ mongoose.connect("mongodb+srv://roshni_db_user:Roshan2@Mern.4xfitnp.mongodb.net/
 
 const app = express();
 app.use(express.json());
-app.use(cors());
-
+app.use(cors({
+  origin: ["https://webpage-cb2nbi4an-roshni-2s-projects.vercel.app/"],
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true
+}));
 // Routes
 app.use("/api/users", userRoutes);
 
