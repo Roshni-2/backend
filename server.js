@@ -1,24 +1,25 @@
 import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
-import userRoutes from "./routes/userRoutes.js";
-import dotenv from 'dotenv';
+import router from "./routes/userRoutes.js";
+import dotenv from "dotenv";
 
 dotenv.config();
 
-mongoose.connect("mongodb+srv://roshni_db_user:Roshan2@Mern.4xfitnp.mongodb.net/MernDB")
-.then(console.log("MongoDB Connected"))
-.catch((error) => console.log(error))
+mongoose.connect(process.env.MONGO_URI)
+  .then(() => console.log("MongoDB Connected"))
+  .catch((error) => console.log("MongoDB Error:", error));
 
 const app = express();
 app.use(express.json());
+
 app.use(cors({
-  origin: ["https://webpage-cb2nbi4an-roshni-2s-projects.vercel.app/"],
+  origin: ["https://webpage-dusky-delta.vercel.app/"],
   methods: ["GET", "POST", "PUT", "DELETE"],
-  credentials: true
+  credentials: true,
 }));
-// Routes
-app.use("/api/users", userRoutes);
+
+app.use("/api/users", router);
 
 app.get("/", (req, res) => {
   res.send("API is running...");
